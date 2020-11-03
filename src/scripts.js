@@ -23,6 +23,13 @@ class Members {
      }
 }
 
+let mySelf = new Members('Dafrin',2001);
+document.getElementById('classes').innerHTML = mySelf.present()+ " and me "+ mySelf.age() +" years old";
+// document.getElementById('classes').innerHTML = mySelf.show();
+console.log(mySelf);
+
+
+// callback
 var displayer = (some) => {
     document.getElementById("callback").innerHTML = some;
 }
@@ -34,11 +41,15 @@ var calculator = (num1,num2,callback) => {
 
 calculator(5,5, displayer);
 
-let mySelf = new Members('Dafrin',2001);
-document.getElementById('classes').innerHTML = mySelf.present()+ " and me "+ mySelf.age() +" years old";
-// document.getElementById('classes').innerHTML = mySelf.show();
-console.log(mySelf);
-
+//Use promise
+let myPromise = new Promise  (function(myResolve, myReject) {
+    setTimeout(() => {
+        myResolve("I love You");
+    }, 3000);
+});
+myPromise.then(function (value) {
+    document.getElementById('loveyou').innerHTML = value;
+})
 
 var carName = "Volvo";
 // arrays 
