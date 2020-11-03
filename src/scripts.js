@@ -18,10 +18,25 @@ class Members {
          let date = new Date();
          return date.getFullYear() - this.year;
      }
+     present() {
+         return 'My Self is ' + this.name;
+     }
 }
 
+var displayer = (some) => {
+    document.getElementById("callback").innerHTML = some;
+}
+
+var calculator = (num1,num2,callback) => {
+    let sum = num1 + num2;
+    callback(sum);
+}
+
+calculator(5,5, displayer);
+
 let mySelf = new Members('Dafrin',2001);
-document.getElementById('classes').innerHTML = "My Self is "+ mySelf.age() +" years old";
+document.getElementById('classes').innerHTML = mySelf.present()+ " and me "+ mySelf.age() +" years old";
+// document.getElementById('classes').innerHTML = mySelf.show();
 console.log(mySelf);
 
 
